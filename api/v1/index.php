@@ -152,7 +152,6 @@ $app->post('/commandes', function() use ($app) {
 
 });
 
+
 $app->run();//lance l'application
-
-
 ?>
