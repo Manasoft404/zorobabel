@@ -12,6 +12,14 @@ class Client extends Internaute{
     private $numCarteCreditClient;
     private $numTelClient;
 
+
+    /**
+     * Client constructor.
+     * @param $idClient
+     * @param $numCompteClient
+     * @param $numCarteCreditClient
+     * @param $numTelClient
+     */
     function __construct($idClient, $numCompteClient, $numCarteCreditClient, $numTelClient)
     {
         $this->idClient = $idClient;
@@ -83,5 +91,7 @@ class Client extends Internaute{
     {
         $this->numTelClient = $numTelClient;
     }
+
+
 
 }
