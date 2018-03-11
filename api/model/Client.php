@@ -13,13 +13,7 @@ class Client extends Internaute{
     private $numTelClient;
 
 
-    /**
-     * Client constructor.
-     * @param $idClient
-     * @param $numCompteClient
-     * @param $numCarteCreditClient
-     * @param $numTelClient
-     */
+
     function __construct($idClient, $numCompteClient, $numCarteCreditClient, $numTelClient)
     {
         $this->idClient = $idClient;
