@@ -1,0 +1,130 @@
+<section class="section">
+    <!--Shopping Cart table-->
+    <div class="table-responsive">
+
+        <table class="table product-table">
+            <!--Table head-->
+            <thead>
+            <tr>
+                <th></th>
+                <th>Produit</th>
+                <th>Poids</th>
+                <th>Prix</th>
+                <th>QTY</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <!--/Table head-->
+
+            <!--Table body-->
+            <tbody>
+
+            <!--First row-->
+            <tr ng-repeat="item in cart.items | orderBy:'name'"   >
+                <th scope="row">
+                    <img src="asset/upload/{{item.image}}" alt="" class="img-fluid z-depth-0">
+                </th>
+                <td>
+                    <h5><strong>{{item.name}}</strong></h5>
+                    <p class="text-muted">{{item.description}}</p>
+                </td>
+                <td>{{item.poids}} g</td>
+                <td>{{item.price}} Fc</td>
+                <td class="center-on-small-only">
+                    <div class="input-append">
+                        <!-- use type=tel instead of  to prevent spinners -->
+                        <input
+                                class="span3 text-center" type="tel"
+                                ng-model="item.quantity"
+                                ng-change="cart.saveItems();" />
+                        <button
+                                class="btn btn-sm btn-success" type="button"
+                                ng-disabled="item.quantity >= 1000"
+                                ng-click="cart.addItem(item.sku, item.name,item.image,item.description,item.poids, item.price, +1)">+</button>
+                        <button
+                                class="btn btn-sm btn-danger" type="button"
+                                ng-disabled="item.quantity <= 1"
+                                ng-click="cart.addItem(item.sku, item.name,item.image,item.description,item.poids, item.price, -1)">-</button>
+                    </div>
+                </td>
+                </td>
+                <td class="tdRight">{{item.price * item.quantity}} Fc</td>
+                <td>
+                    <button type="button" ng-click="cart.addItem(item.sku, item.name, item.image,item.description,item.poids,item.price, -10000000)" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Supprimer la ligne">X
+                    </button>
+                </td>
+            </tr>
+            <!-- footer -->
+            <tr class="well">
+                <td><b>Total</b></td>
+                <td class="tdCenter"><b>{{cart.getTotalCount()}} </b></td>
+                <td class="tdRight"><b>{{cart.getTotalPrice()}} Fc</b></td>
+                <td />
+                <td colspan="3">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" ng-disabled="cart.getTotalPrice()==0">Completer la commande  <i class="fa fa-angle-right right"></i></button>
+                </td>
+            </tr>
+            <!-- empty cart message -->
+            <tr ng-show="cart.getTotalPrice()== 0" >
+                <td class="tdCenter" colspan="4">
+                    <p class="text-muted" >Votre panier est vide,Veuillez ajouter un produit pour lancer votre commande!!!.</p>
+                </td>
+            </tr>
+
+            </tbody>
+            <!--/Table body-->
+        </table>
+
+    </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Processus de Paiement</h4>
+            </div>
+            <!--Body-->
+            <div class="modal-body">
+                <input name="login"  ng-model="login" type="text" id="form3" class="form-control" placeholder="Entrez votre Login" required="" >
+                <input name="password" ng-model="password" type="password" id="form2" class="form-control" placeholder="Entrez votre Mot de passe" required="" >
+                <input name="banque" ng-model="banque" type="text"  class="form-control" placeholder="Entrez votre Banque">
+                <input name="numcompte" ng-model="numcompte" type="text"  class="form-control" placeholder="Entrez votre numéro de compte">
+                <input name="cartecredit" ng-model="cartecredit" type="text"  class="form-control" placeholder="Entrez votre numéro de carte de credit">
+                <input name="codesecret" ng-model="codesecret" type="password"  class="form-control" placeholder="Entrez votre code secret ">
+                <p class="text-muted" >Coordonnées GPS (facultatives)</p>
+                <form class="form-inline">
+                    <div class="md-form form-group">
+                        <input name="latitude" ng-model="latitude" type="number" placeholder="Latitude"  class="form-control validate">
+                    </div>
+                    <div class="md-form form-group">
+                        <input name="longitude" ng-model="longitude" type="number" placeholder="Logitude" class="form-control validate">
+                    </div>
+                </form>
+                <textarea name="adresseLiv" ng-model="adresseLiv" type="text" id="form8"   class="md-textarea" placeholder="Votre Adresse de livraison: Ex. 12 av Savonnier Q/Bel-air C/Kampemba"></textarea>
+                    <!--Footer-->
+                <div class="modal-footer">
+                    <div class="options">
+                        <p>je suis pas membre? <a href="#/register" onclick="$('#myModal').modal('hide');">S'inscrire</a></p>
+                        <p>Mot de passe <a href="#" data-dismiss="modal" >Oublier?</a></p>
+                    </div>
+                </div>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                <button ng-click="saveCommande(login,password,latitude,longitude,adresseLiv,cart.getTotalPrice(),cart.items);" type="button" class="btn btn-primary" data-dismiss="modal">Commander</button>
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+
+</div>
+<!-- /.Live preview-->

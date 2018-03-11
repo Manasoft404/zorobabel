@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Zorobabel</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="asset/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="asset/css/mdb.css" rel="stylesheet">
+    <link href="asset/css/angular-mdb-select.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="asset/css/style.css" rel="stylesheet">
+
+
+</head>
+<body class="hidden-sn pink-skin" ng-cloak="">
+<!--Double navigation-->
+<header>
+
+    <!-- Sidebar navigation -->
+    <ul id="slide-out" class="side-nav hidden custom-scrollbar">
+        <div class="row">
+            <img src="asset/img/logo/boulangerie%20copy.png" class="img-fluid img-circle">
+            <ul class="collapsible collapsible-accordion">
+                <li class="text-sm-center"><a href="#/" class="waves-light"><i class="fa fa-home"></i>Accuil</a></li>
+                <li class="text-sm-center"><a href="#/products" class="waves-light"><i class="fa fa-home"></i> produit</a></li>
+                <li class="text-sm-center"><a href="#/cart" class="waves-light"><i class="fa fa-home"></i> cart</a></li>
+                <li class="text-sm-center"><a href="#/contact" class="waves-light"><i class="fa fa-home"></i> contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Side navigation links -->
+    </ul>
+    <!--/. Sidebar navigation -->
+
+    <!--Navbar-->
+    <nav class="navbar navbar-fixed-top scrolling-navbar double-nav">
+
+        <!-- SideNav slide-out button -->
+        <div class="float-xs-left">
+            <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i>Menu</a>
+        </div>
+
+        <!-- Breadcrumb-->
+        <div class="breadcrumb-dn">
+            <ol class="breadcrumb header-breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Accueil</a></li>
+            </ol>
+        </div>
+
+        <ul class="nav navbar-nav float-xs-right">
+
+            <li class="nav-item ">
+                <a class="nav-link" href="#/cart"><span class="tag red">{{totalpanier}}</span> <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="hidden-sm-down">Panier</span></a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="#/products">Produits</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="#/contact"><i class="fa fa-envelope"></i> <span class="hidden-sm-down">Contact</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>user</a>
+                <div class="dropdown-menu dropdown-primary dd-right" aria-labelledby="dropdownMenu1" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                    <a class="dropdown-item" href="#/register">S'inscrire</a>
+                    <a class="dropdown-item" href="#/admin">Admin</a>
+                </div>
+            </li>
+        </ul>
+
+    </nav>
+    <!--/.Navbar-->
+
+</header>
+<!--/Double navigation-->
+
+<main id="mainContainer">
+    <!-- Main Container -->
+    <div class="container">
+        <div class="row">
+            <div class="page-content">
+                <div ng-view="" id="ng-view"></div>
+                </select>
+
+            </div>
+        </div>
+    </div>
+    <!-- /.Main Container -->
+</main>
+<nav class="navbar-fixed-bottom #424242 grey darken-3">
+    <div class="nav-wrapper text-center">
+        <a href="#!" class="text-center">@Zorobabel</a>
+    </div>
+</nav>
+
+<!-- SCRIPTS -->
+<!-- Libraries -->
+<script type="text/javascript" src="asset/js/angular.min.js"></script>
+<script type="text/javascript" src="asset/js/ui-bootstrap-tpls-0.11.2.min.js"></script>
+<script type="text/javascript" src="asset/js/angular-route.min.js"></script>
+<script type="text/javascript" src="asset/js/angular-animate.min.js"></script>
+
+<!-- AngularJS custom codes -->
+<script src="app/app.js"></script>
+<script src="app/data.js"></script>
+<script src="app/directives.js"></script>
+<script src="app/productsCtrl.js"></script>
+<script src="app/product.js"></script>
+<script src="app/store.js"></script>
+<script src="app/shoppingCart.js"></script>
+<script src="app/storeCtrl.js"></script>
+<!-- JQuery -->
+<script type="text/javascript" src="asset/js/jquery-3.1.1.min.js"></script>
+
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="asset/js/tether.min.js"></script>
+<script type="text/javascript" src="asset/js/underscore.min.js"></script>
+
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="asset/js/bootstrap.min.js"></script>
+        <!-- MDB core JavaScript -->
+<script type="text/javascript" src="asset/js/mdb.min.js"></script>
+<script type="text/javascript" src="asset/js/angular-mdb-select.min.js"></script>
+
+
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script type="text/javascript" src="asset/js/ie10-viewport-bug-workaround.js"></script>
+
+<script type="text/javascript">
+
+    $(".button-collapse").sideNav();
+    /* WOW.js init */
+    new WOW().init();
+
+    /* Side navigation toggle */
+    $(".button-collapse").sideNav();
+    $(document).ready(function(){
+        $('.mdb-select').material_select();
+    });
+
+
+    /* Tooltip */
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    })
+</script>
+</body>
+</html>

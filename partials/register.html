@@ -1,0 +1,46 @@
+<section class="section">
+
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3 col-md-8">
+        </div>
+        <div class="col-lg-6 col-md-8">
+            <!--Form with header-->
+            <div class="card">
+                <div class="card-block">
+                    <h3 class="text-lg-center text-md-center text-sm-center"> Création de compte</h3>
+                    <input name="nom_complet"  ng-model="client.nom_complet"  type="text"  class="form-control" placeholder="Entrez votre Nom complet">
+                    <input name="email"  ng-model="client.email" type="email" id="form9" class="form-control" placeholder="Entrez votre Adresse Mail">
+                    <input name="phone"  ng-model="client.phone" type="tel"  class="form-control" placeholder="Entrez numéro téléphonique">
+                    <textarea name="adresse"  ng-model="client.adresse" type="text"  class="md-textarea" placeholder="Votre Adresse actuelle: Ex. 12 av Savonnier Q/Bel-air C/Kampemba"></textarea>
+                    <input name="login"  ng-model="client.login" type="text"  class="form-control" placeholder="Entrez votre Login">
+                    <input type="password"  ng-model="password1"  class="form-control" placeholder="Entrez votre Motdepasse">
+                    <input name="password"  ng-model="client.password"  type="password"  class="form-control" placeholder="Entrez à nouveau votre Motdepasse">
+                    <div class="text-xs-center">
+                        <button type="button" class="btn btn-primary" ng-click="saveClient(client,password1);">S'inscrire</button>
+                        <hr>
+                        <fieldset class="form-group">
+                            <input type="checkbox" id="checkbox1">
+                            <label for="checkbox1">inscrire aux news letters</label>
+                        </fieldset>
+                    </div>
+
+                </div>
+            </div>
+            <!--/Form with header-->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+    </div>
+
+
+</section>
+
